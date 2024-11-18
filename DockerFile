@@ -1,0 +1,15 @@
+# imagen oficial de Nginx
+FROM nginx:alpine
+
+# crear el directorio /appHomeBanking dentro del contenedor
+RUN mkdir -p /appHomeBanking
+
+# copiar los archivos HTML en el directorio /appHomeBanking
+COPY index.html /appHomeBanking/index.html
+COPY contacto.html /appHomeBanking/contacto.html
+
+# Copiar el contenido del directorio /appHomeBanking al directorio de Nginx
+COPY /appHomeBanking /usr/share/nginx/html
+
+# Exponer el puerto 80
+EXPOSE 80
